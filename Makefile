@@ -1,6 +1,7 @@
 NAME = push_swap.a
 
-SRCS :=
+SRCS := srcs/main.c \
+	srcs/parsing/check_arg_valid.c \
 
 CC := cc
 CFLAGS := -Wall -Wextra -Werror -g3

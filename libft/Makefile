@@ -96,5 +96,5 @@ re :
 
 -include $(DEPS)
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
 

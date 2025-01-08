@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   init_lst.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 09:13:54 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/08 05:32:46 by samaouch         ###   ########lyon.fr   */
+/*   Created: 2025/01/08 01:46:44 by samaouch          #+#    #+#             */
+/*   Updated: 2025/01/08 04:42:57 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
-#include <stdlib.h>
+#include "../../push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+int	init_lst(int argc, char **argv, t_list **stack)
 {
-	t_list	*new;
-
-	new = malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	int	i;
+	t_list *new;
+	int		*new_value;
+	
+	i = 2;
+	while (i < argc)
+	{
+		new_value = malloc(sizeof(int));
+		if (!new_value)
+			return (-1);
+		*new_value = ft_atoi(argv[i]);
+		new = ft_lstnew(new_value);
+		if (!new)
+		{
+			free(new_value);
+			return (-1);
+		}
+		ft_lstadd_back(stack, new);
+		++i;
+	}
+	return (0);
 }

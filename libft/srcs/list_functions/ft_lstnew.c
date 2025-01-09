@@ -6,11 +6,11 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 09:13:54 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/08 05:32:46 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/09 04:26:15 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 #include <stdlib.h>
 
 t_list	*ft_lstnew(void *content)

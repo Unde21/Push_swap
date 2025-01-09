@@ -6,11 +6,11 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 17:48:40 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/07 03:46:57 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/09 04:26:25 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

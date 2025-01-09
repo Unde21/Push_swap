@@ -6,11 +6,11 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 13:55:04 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/07 03:47:07 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/09 04:26:31 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 #include <stdint.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)

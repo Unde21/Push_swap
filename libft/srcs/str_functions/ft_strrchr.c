@@ -6,11 +6,11 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:31:34 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/07 03:48:09 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/09 04:27:46 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 #include <stdint.h>
 
 char	*ft_strrchr(const char *s, int c)

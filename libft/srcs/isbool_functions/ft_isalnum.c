@@ -6,11 +6,11 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 14:42:31 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/07 03:46:13 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/09 04:28:11 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 
 int	ft_isalnum(int c)
 {

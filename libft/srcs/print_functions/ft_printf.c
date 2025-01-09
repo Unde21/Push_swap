@@ -6,11 +6,11 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 10:00:00 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/07 03:47:16 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/09 04:26:38 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 #include <stdarg.h>
 #include <stddef.h>
 #include <unistd.h>

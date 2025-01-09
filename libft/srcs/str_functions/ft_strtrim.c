@@ -6,11 +6,11 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:37:36 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/07 03:48:12 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/09 04:27:49 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 #include <stdlib.h>
 
 static int		new_length(char const *s1, char const *set);

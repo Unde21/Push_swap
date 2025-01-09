@@ -1,34 +1,28 @@
-NAME = push_swap.a
+NAME = push_swap
 
 SRCS := srcs/main.c \
     srcs/print.c \
     srcs/parsing/check_arg_valid.c \
-    srcs/exec/init_lst.c
+    srcs/exec/init_stack.c \
+	srcs/exec/operations.c
 
 CC := cc
 CFLAGS := -Wall -Wextra -Werror -g3
-CPPFFLAGS := -MD -MP -MF
+CPPFFLAGS := -MMD -MP 
 
 RM := rm -rf
-AR := ar -rcs
 
 SRC_DIR := srcs/
 SRCB_DIR := srcs_bonus/
 OBJ_DIR := .objs/
-DEP_DIR := .deps/
 OBJB_DIR := .objs_bonus/
-DEPB_DIR := .deps_bonus/
-LIBFT_DIR := libft/
+LIBFT_DIR := ./libft
 
-INCS := -I. -I$(LIBFT_DIR)
-
-OBJS := $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
-OBJSB := $(patsubst $(SRCB_DIR)%.c, $(OBJB_DIR)%.o, $(SRCSB))
-DEPS := $(SRCS:$(SRC_DIR)%.c=$(DEP_DIR)%.d)
-DEPSB := $(SRCSB:$(SRCB_DIR)%.c=$(DEPB_DIR)%.d)
-
+INCS := -I.
 
 LIBFT := $(LIBFT_DIR)libft.a
+OBJS := $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
+OBJSB := $(patsubst $(SRCB_DIR)%.c, $(OBJB_DIR)%.o, $(SRCSB))
 
 BOLD := \033[1m
 GREEN := \033[0;32m
@@ -36,32 +30,25 @@ RED := \033[0;31m
 BLUE := \033[0;34m
 END := \033[0m
 
-
-.PHONY: all clean fclean re bonus libft FORCE
-
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJS)
-	$(RM) $(NAME)
-	@$(RM) $(OBJB_DIR) $(DEPB_DIR)
-	@cp $(LIBFT) $(NAME)
-	$(AR) $(NAME) $(OBJS)
-	@echo "$(GREEN)$(BOLD)$(NAME) created successfully!$(END)"
+$(NAME): $(LIBFT) $(OBJS) Makefile
+	$(CC) $(CFLAGS) $(OBJS) $(INCS) ./libft/libft.a -o $@
+	@echo "$(BLUE)$(BOLD)$(NAME) made successfully!$(END)"
 
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR) $(DEP_DIR)
-	@mkdir -p $(dir $@) $(dir $(DEP_DIR)$*)
-	@$(CC) $(CFLAGS) $(INCS) $(CPPFFLAGS) $(DEP_DIR)$*.d -c $< -o $@
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INCS) $(CPPFFLAGS)-c -o $@ $<
 
-$(OBJ_DIR) $(DEP_DIR):
+$(OBJ_DIR):
 	@mkdir -p $@
 
+$(OBJB_DIR)%.o: $(SRCB_DIR)%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INCS) $(CPPFFLAGS) -c -o $@
 
-$(OBJB_DIR)%.o: $(SRCB_DIR)%.c | $(OBJB_DIR) $(DEPB_DIR)
-	@mkdir -p $(dir $@) $(dir $(DEPB_DIR)$*)
-	@$(CC) $(CFLAGS) $(INCS) $(CPPFFLAGS) $(DEPB_DIR)$*.d -c $< -o $@
-
-$(OBJB_DIR) $(DEPB_DIR):
+$(OBJB_DIR):
 	@mkdir -p $@
 
 $(LIBFT): FORCE
@@ -71,7 +58,7 @@ bonus: .bonus
 
 .bonus: $(LIBFT) $(OBJSB)
 	$(RM) $(NAME) 
-	@$(RM) $(OBJ_DIR) $(DEP_DIR)
+	@$(RM) $(OBJ_DIR)
 	@cp $(LIBFT) $(NAME)
 	$(AR) $(NAME) $(OBJSB)
 	@echo "$(GREEN)$(BOLD)$(NAME) created successfully!$(END)"
@@ -81,7 +68,7 @@ bonus: .bonus
 FORCE :
 
 clean:
-	@$(RM) $(OBJ_DIR) $(DEP_DIR) $(OBJB_DIR) $(DEPB_DIR) .bonus
+	@$(RM) $(OBJ_DIR) $(OBJB_DIR) .bonus
 	@$(MAKE) -C $(LIBFT_DIR) clean
 	@echo "$(RED)$(BOLD)Objects cleaned$(END)"
 
@@ -92,5 +79,4 @@ fclean: clean
 
 re: fclean all
 
--include $(DEPS)
--include $(DEPSB)
+.PHONY: all clean fclean re bonus libft FORCE

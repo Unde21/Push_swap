@@ -6,25 +6,30 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:52:41 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/08 04:23:04 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/09 02:16:04 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <stdio.h> // A RETIRER
-
 # include "libft/libft.h"
+# include <stdio.h> // A RETIRER
 # include <stdlib.h>
+
+// Operations
+
+void	swap(t_list **stack, char c);
+void	push (t_list **stack_a, t_list **stack_b, char c);
 
 int	print_error(void);
 int	is_integer(char *str);
-int	is_duplicate(int *tab);
+int	is_duplicate(int argc, int *tab);
 int	parse_stack(int argc, char **argv);
 
-
-void	delete(void *content);
-int	init_lst(int argc, char **argv, t_list **stack);
+void delete (void *content);
+int	init_stack_b(t_list	**stack_b);
+int	init_stack_a(int argc, char **argv, t_list **stack_a);
+int	add_all_number_to_stack_a(int argc, char **argv, t_list **stack_a);
 
 #endif

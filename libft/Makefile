@@ -73,7 +73,7 @@ COLOR_END=\033[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) Makefile
 	$(AR) $(NAME) $(OBJS)
 	@echo "$(GREEN)$(BOLD)$(NAME) created successfully!$(COLOR_END)"
 
@@ -88,7 +88,8 @@ clean:
 	@$(RM) $(OBJ_DIR) $(DEP_DIR)
 
 fclean: clean
-	$(RM) $(NAME) $(OBJS_DIR)
+	@$(RM) $(NAME) $(OBJS_DIR)
+	@echo "$(RED)$(BOLD)$(NAME) cleaned !$(COLOR_END)"
 
 re : 
 	@$(MAKE) fclean

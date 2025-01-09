@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 13:45:35 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/07 03:03:50 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/09 00:52:31 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,18 +86,18 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
-
 /* ************************************************************************** */
 /*								Ft_printf								  	  */
 /* ************************************************************************** */
 
-int	ft_printf(const char *format, ...) __attribute__((format(printf, 1, 2)));
-int	print_char(int c);
-int	print_str(char *str);
-int	format_is_valid(const char *format);
-int	print_addr(unsigned long ptr, int count, int index);
-int	print_nbr(int n, int check_form, int count);
-int	print_hexa(unsigned int n, const char *base, int count);
-int	check_format(va_list *params, char format);
+int		ft_printf(const char *format, ...)
+		__attribute__((format(printf, 1, 2)));
+int		print_char(int c);
+int		print_str(char *str);
+int		format_is_valid(const char *format);
+int		print_addr(unsigned long ptr, int count, int index);
+int		print_nbr(int n, int check_form, int count);
+int		print_hexa(unsigned int n, const char *base, int count);
+int		check_format(va_list *params, char format);
 
 #endif

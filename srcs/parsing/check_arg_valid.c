@@ -6,17 +6,17 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:33:05 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/08 04:44:42 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/09 01:22:28 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
 int	parse_stack(int argc, char **argv)
 {
-	int i;
+	int	i;
 	int	*tmp_int;
-	
+
 	i = 1;
 	tmp_int = ft_calloc(sizeof(int), argc - 1);
 	if (!tmp_int)
@@ -31,13 +31,7 @@ int	parse_stack(int argc, char **argv)
 		tmp_int[i - 1] = ft_atoi(argv[i]);
 		++i;
 	}
-	int j = 0;
-	while (j < 4)
-	{
-		printf("%d\n", tmp_int[j]);
-		j++;
-	}
-	if (is_duplicate(tmp_int) < 0)
+	if (is_duplicate(argc, tmp_int) < 0)
 	{
 		free(tmp_int);
 		return (print_error());
@@ -46,7 +40,7 @@ int	parse_stack(int argc, char **argv)
 	return (0);
 }
 
-int is_integer(char *str)
+int	is_integer(char *str)
 {
 	size_t	i;
 	size_t	size_max_int;
@@ -69,16 +63,16 @@ int is_integer(char *str)
 	return (0);
 }
 
-int	is_duplicate(int *tab)
+int	is_duplicate(int argc, int *tab)
 {
-	size_t	i;
-	size_t	j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
-	while (tab[i])
+	while (i < argc - 1)
 	{
 		j = 0;
-		while (tab[j])
+		while (j < argc - 1)
 		{
 			if (tab[i] == tab[j] && j != i)
 				return (-1);

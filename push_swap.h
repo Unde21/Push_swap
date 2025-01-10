@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:52:41 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/09 05:05:34 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/10 20:23:34 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@
 // Operations
 
 void	swap(t_list **stack, char c);
-void	swap_ab (t_list **stack);
+void	swap_ab (t_list **stack_a, t_list **stack_b);
 void	push (t_list **stack_a, t_list **stack_b, char c);
+void	rotate (t_list **stack, char c);
+void	rotate_ab (t_list **stack_a, t_list **stack_b);
+void	reverse_rotate (t_list **stack, char c);
+void	reverse_rotate_ab (t_list **stack_a, t_list **stack_b);
 
 int	print_error(void);
 int	is_integer(char *str);

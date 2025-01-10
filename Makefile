@@ -4,7 +4,10 @@ SRCS := srcs/main.c \
     srcs/print.c \
     srcs/parsing/check_arg_valid.c \
     srcs/exec/init_stack.c \
-	srcs/exec/operations.c
+	srcs/exec/operations/swap.c \
+	srcs/exec/operations/push.c \
+	srcs/exec/operations/rotate.c \
+	srcs/exec/operations/reverse_rotate.c \
 
 CC := cc
 CFLAGS := -Wall -Wextra -Werror -g3

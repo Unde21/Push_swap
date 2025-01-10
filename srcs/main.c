@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:42:01 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/09 05:38:12 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/10 20:24:01 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,22 @@ int	main(int argc, char **argv)
 		push(&stack_a, &stack_b, 'b');
 		print_lst(stack_a, 'a');
 		print_lst(stack_b, 'b');
-		push(&stack_a, &stack_b, 'a');
+		push(&stack_a, &stack_b, 'b');
+		print_lst(stack_a, 'a');
+		print_lst(stack_b, 'b');
+		swap_ab(&stack_a, &stack_b);
+		print_lst(stack_a, 'a');
+		print_lst(stack_b, 'b');
+		rotate(&stack_a, 'a');
+		print_lst(stack_a, 'a');
+		print_lst(stack_b, 'b');
+		rotate_ab(&stack_a, &stack_b);
+		print_lst(stack_a, 'a');
+		print_lst(stack_b, 'b');
+		reverse_rotate(&stack_a, 'a');
+		print_lst(stack_a, 'a');
+		print_lst(stack_b, 'b');
+		reverse_rotate_ab(&stack_a, &stack_b);
 		print_lst(stack_a, 'a');
 		print_lst(stack_b, 'b');
 		ft_lstclear(&stack_a, delete);

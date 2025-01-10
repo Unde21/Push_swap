@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:33:05 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/09 01:22:28 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/10 18:35:47 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	parse_stack(int argc, char **argv)
 		return (-2);
 	while (i < argc)
 	{
-		if (is_integer(argv[i]) < 0)
+		if (is_integer(argv[i]) < 0 || argv[i][0] == '\0')
 		{
 			free(tmp_int);
 			return (print_error());

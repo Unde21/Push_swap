@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 20:12:32 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/10 20:12:46 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/11 01:25:49 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ void	push (t_list **stack_a, t_list **stack_b, char c)
 		if (!new)
 			return ;
 		ft_lstadd_front(stack_a, new);
-		*stack_b = first_elem_b->next; 
+		if (ft_lstsize(*stack_b) > 1)
+			*stack_b = first_elem_b->next;
+		else
+			*stack_b = NULL;
 		ft_printf("p%c\n", c);
 		free(first_elem_b);
 	}
@@ -37,7 +40,10 @@ void	push (t_list **stack_a, t_list **stack_b, char c)
 		if (!new)
 			return ;
 		ft_lstadd_front(stack_b, new);
-		*stack_a = first_elem_a->next;
+		if (ft_lstsize(*stack_a) > 1)
+			*stack_a = first_elem_a->next;
+		else
+			*stack_b = NULL;
 		ft_printf("p%c\n", c);
 		free(first_elem_a);
 	}

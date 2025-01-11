@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:52:41 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/10 20:23:34 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/11 02:31:56 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdio.h> // A RETIRER
 # include <stdlib.h>
 
+void	print_lst(t_list *lst, char c); // a retirer 
+
 // Operations
 
 void	swap(t_list **stack, char c);
@@ -26,6 +28,17 @@ void	rotate (t_list **stack, char c);
 void	rotate_ab (t_list **stack_a, t_list **stack_b);
 void	reverse_rotate (t_list **stack, char c);
 void	reverse_rotate_ab (t_list **stack_a, t_list **stack_b);
+
+// algo
+void	algo(t_list **stack_a, t_list **stack_b);
+int	first_is_biggest (t_list *stack);
+int	last_is_smallest(t_list *stack);
+int	need_to_swap(t_list *stack);
+int	first_is_smallest (t_list *stack);
+int	is_sort(t_list *stack);
+int	is_reverse_sort(t_list *stack);
+int	last_is_biggest(t_list *stack);
+
 
 int	print_error(void);
 int	is_integer(char *str);

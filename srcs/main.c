@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:42:01 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/11 02:25:50 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/11 05:48:36 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	main(int argc, char **argv)
 			return (-1);
 		// print_lst(stack_a, 'a');
 		// print_lst(stack_b, 'b');
+		push(&stack_a, &stack_b, 'b');
+		push(&stack_a, &stack_b, 'b');
 		algo(&stack_a, &stack_b);
 		// ft_printf("is sort ===> %d\n", is_sort(stack_a));
 		ft_lstclear(&stack_a, delete);

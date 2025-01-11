@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 23:50:28 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/11 02:39:18 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/11 06:31:25 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,25 +55,25 @@ void	algo(t_list **stack_a, t_list **stack_b)
 	}
 	else if (need_to_swap(*stack_a) > 0)
 	{
-		//ft_printf("need_to_swap\n");
 		if (need_to_swap(*stack_b) < 0 && ft_lstsize(*stack_b) > 1)
 			swap_ab(stack_a, stack_b);
+		//ft_printf("need_to_swap\n");
 		else
 			swap(stack_a, 'a');
 	}
 	else if (need_to_swap(*stack_b) < 0 && ft_lstsize(*stack_b) > 1)
 	{
-		//ft_printf("need_to_swap\n");
 		if (need_to_swap(*stack_a) > 0)
 			swap_ab(stack_a, stack_b);
+		//ft_printf("need_to_swap\n");
 		else
 			swap(stack_b, 'b');
 	}
-	// else if (first_is_smallest(*stack_b) > 0 && is_reverse_sort(*stack_b) != 0)
-	// {
-	// 	///ft_printf("second rotate\n");
-	// 	rotate(stack_b, 'b');
-	// }
+	else if (first_is_smallest(*stack_b) > 0 && is_reverse_sort(*stack_b) != 0)
+	{
+		///ft_printf("second rotate\n");
+		rotate(stack_b, 'b');
+	}
 	else if ((is_sort(*stack_a) != 0  && ft_lstsize(*stack_a) > 1)
 		|| (ft_lstsize(*stack_a) > 1 &&  first_is_smallest(*stack_a) > 0 && is_sort(*stack_a) != 0))
 	{

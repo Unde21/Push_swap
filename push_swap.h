@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:52:41 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/15 11:48:23 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/15 13:41:02 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,9 @@ int	last_is_biggest(t_list *stack);
 //version 2
 void	sort_max_three(t_list **stack_a);
 void	big_sort(t_list **stack_a, t_list **stack_b);
-int		smallest_difference(t_list *stack);
-int	need_to_swap_b(t_list *stack);
+int		smallest_difference(t_list *stack, int medium_value);
+int		need_to_swap_b(t_list *stack);
+int		get_medium_value(t_list *stack);
 
 int	print_error(void);
 int	is_integer(char *str);

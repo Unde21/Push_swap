@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 08:51:07 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/15 11:50:00 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/15 14:02:30 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,23 @@
 void	algo(t_list **stack_a, t_list **stack_b)
 {
 	int	size_stack_a;
+	int	medium;
 
 	size_stack_a = ft_lstsize(*stack_a);
+	medium = get_medium_value(*stack_a);
 	while (size_stack_a > 3)
 	{
 		push(stack_a, stack_b, 'b');
 		size_stack_a = ft_lstsize(*stack_a);
-		if (need_to_swap_b(*stack_b) == 1)
+		if (smallest_difference(*stack_b, medium) != 0)
 		{
 			//ft_printf("difference : %d\n", smallest_difference(*stack_b));
 			// print_lst(*stack_a, 'a');
 			// print_lst(*stack_b, 'b');
-			if (smallest_difference(*stack_b) == 1)
-				rotate(stack_b, 'b');
-			else
+			if (need_to_swap_b(*stack_b) == 0)
 				swap(stack_b, 'b');
+			else
+				rotate(stack_b, 'b');
 		} 
 	}
 	if (is_sort(*stack_a) != 0)
@@ -163,16 +165,52 @@ int	last_is_biggest(t_list *stack)
 int	need_to_swap_b(t_list *stack)
 {
 	t_list	*first_elem;
+	t_list	*current;
+	t_list	*tmp;
+	int		i;
+	int		j;
 
-	if (ft_lstsize(stack) <= 1)
+	tmp = stack->next;
+	current = stack;
+	if (ft_lstsize(stack) <= 2)
 		return (-1);
 	first_elem = stack;
 	stack = stack->next;
 	if (*(int *)(first_elem->content) < *(int *)stack->content)
+	{
+		i = *(int *)(stack->content) - *(int *)(tmp->content);
+		if (i < 0)
+			i = -i;
+		while (stack->next != NULL)
+		{
+			stack = stack->next;
+		}
+		j = *(int *)(current->content) - *(int *)(stack->content);
+		if (j < 0)
+			j = -j;
+		if (j < i)
+			return (0);
 		return (1);
-	return (-1);
+	}
+	return (0);
 }
-
+int	get_medium_value(t_list *stack)
+{
+	int	medium_value;
+	int	nb_value;
+	
+	medium_value = 0;
+	if (ft_lstsize(stack) < 1)
+		return (-1);
+	nb_value = ft_lstsize(stack);
+	while (stack->next != NULL)
+	{
+		medium_value = *(int *)stack->content;
+		stack = stack->next;
+	}
+	medium_value /= nb_value;
+	return (medium_value);
+}
 int	need_to_swap(t_list *stack)
 {
 	t_list	*first_elem;
@@ -246,38 +284,44 @@ int	is_reverse_sort(t_list *stack)
 	}
 	return (0);
 }
-int	smallest_difference(t_list *stack)
+int	smallest_difference(t_list *stack, int medium_value)
 {
-	t_list	*current;
-	t_list	*tmp;
-	int		i;
-	int		j;
-
-	tmp = stack->next;
-	j = 0;
-	if (ft_lstsize(stack) <= 1)
-		return (1);
-	if (ft_lstsize(stack) <= 2)
+	if (*(int *)(stack->content) > medium_value)
 		return (-1);
-	i = *(int *)(stack->content) - *(int *)(tmp->content);
-	if (i < 0)
-		i = -i;
-	// ft_printf("i =====> %d  and %d\n", *(int *)(stack->content), *(int *)(tmp->content));
-	// ft_printf("i =====> %d\n", i);
-	current = stack;
-	while (stack->next != NULL)
-	{
-		stack = stack->next;
-	}
-	j = *(int *)(current->content) - *(int *)(stack->content);
-	// ft_printf("next =====> %d and %d\n", *(int *)(current->content), *(int *)(stack->content));
-	// ft_printf("j =====> %d\n", j);
-	if (j < 0)
-		j = -j;
-	if (j < i)
-		return (1);
 	return (0);
 }
+// int	smallest_difference(t_list *stack)
+// {
+// 	t_list	*current;
+// 	t_list	*tmp;
+// 	int		i;
+// 	int		j;
+
+// 	tmp = stack->next;
+// 	j = 0;
+// 	if (ft_lstsize(stack) <= 1)
+// 		return (1);
+// 	if (ft_lstsize(stack) <= 2)
+// 		return (-1);
+// 	i = *(int *)(stack->content) - *(int *)(tmp->content);
+// 	if (i < 0)
+// 		i = -i;
+// 	// ft_printf("i =====> %d  and %d\n", *(int *)(stack->content), *(int *)(tmp->content));
+// 	// ft_printf("i =====> %d\n", i);
+// 	current = stack;
+// 	while (stack->next != NULL)
+// 	{
+// 		stack = stack->next;
+// 	}
+// 	j = *(int *)(current->content) - *(int *)(stack->content);
+// 	// ft_printf("next =====> %d and %d\n", *(int *)(current->content), *(int *)(stack->content));
+// 	// ft_printf("j =====> %d\n", j);
+// 	if (j < 0)
+// 		j = -j;
+// 	if (j < i)
+// 		return (1);
+// 	return (0);
+// }
 int	first_is_smallest (t_list *stack)
 {
 	t_list *first_elem;

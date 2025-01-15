@@ -8,7 +8,7 @@ SRCS := srcs/main.c \
 	srcs/exec/operations/push.c \
 	srcs/exec/operations/rotate.c \
 	srcs/exec/operations/reverse_rotate.c \
-	srcs/exec/algo.c \
+	srcs/exec/algo_opti.c \
 
 CC := cc
 CFLAGS := -Wall -Wextra -Werror -g3

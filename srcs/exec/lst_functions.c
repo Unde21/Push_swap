@@ -6,13 +6,13 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 01:00:29 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/17 02:45:54 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/18 00:19:00 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*new_stack(int value)
+t_stack	*new_stack(int value, int sort_index)
 {
 	t_stack	*new;
 
@@ -21,6 +21,7 @@ t_stack	*new_stack(int value)
 		return (NULL);
 	new->value = value;
 	new->empty = false;
+	new->sort_index = sort_index;
 	new->next = NULL;
 	return (new);
 }

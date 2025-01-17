@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:52:41 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/17 05:28:29 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/18 00:41:51 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,16 @@ typedef	struct s_stack
 }t_stack;
 
 
+int get_position(t_stack *stack, int value);
+
 int	calculate_chunk(int size);
 int	get_stack_top_index(t_stack *stack);
 void	move_to_a(t_stack *stack_a, t_stack *stack_b);
-void	sandlass_algo(t_stack *stack_a, t_stack *stack_b);
+void	sandlass_algo(t_stack *stack_a, t_stack *stack_b, int total_size);
 
 void	print_lst(t_stack *stack, char c, int index); // a retirer 
 // init stack
-t_stack	*new_stack(int value);
+t_stack	*new_stack(int value, int sort_index);
 void	stack_clear(t_stack **stack, void (*del)(void *));
 void	stack_add_back(t_stack **lst, t_stack *new);
 int		stack_size(t_stack *stack);

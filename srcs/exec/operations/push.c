@@ -6,11 +6,12 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 20:12:32 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/17 05:43:56 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/18 00:21:31 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 void	push (t_stack **stack_a, t_stack **stack_b, char c)
 {
@@ -24,7 +25,7 @@ void	push (t_stack **stack_a, t_stack **stack_b, char c)
 	(void)c; // a retirer
 	if (c == 'a')
 	{
-		new = new_stack(first_elem_b->value);
+		new = new_stack(first_elem_b->value, first_elem_b->sort_index);
 		if (!new)
 			return ;
 		stack_add_front(stack_a, new);
@@ -37,7 +38,7 @@ void	push (t_stack **stack_a, t_stack **stack_b, char c)
 	}
 	else if (c == 'b' && first_elem_a->empty != true)
 	{
-		new = new_stack(first_elem_a->value);
+		new = new_stack(first_elem_a->value, first_elem_a->sort_index);
 		if (!new)
 			return ;
 		stack_add_front(stack_b, new);

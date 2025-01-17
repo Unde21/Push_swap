@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 01:46:44 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/17 03:49:14 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/18 00:09:18 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	init_stack_a(int argc, char **argv, t_stack **stack_a)
 	int	first_value;
 
 	first_value = ft_atoi(argv[1]);
-	*stack_a = new_stack(first_value);
+	*stack_a = new_stack(first_value, 0);
 	if (!stack_a)
 		return (-2);
 	if (add_all_number_to_stack_a(argc, argv, stack_a) < 0)
@@ -40,7 +40,7 @@ int	add_all_number_to_stack_a(int argc, char **argv, t_stack **stack_a)
 		if (!new_value)
 			return (-1);
 		new_value = ft_atoi(argv[i]);
-		new = new_stack(new_value);
+		new = new_stack(new_value, 0);
 		if (!new)
 			return (-1);
 		stack_add_back(stack_a, new);
@@ -51,7 +51,7 @@ int	add_all_number_to_stack_a(int argc, char **argv, t_stack **stack_a)
 
 int	init_stack_b(t_stack **stack_b)
 {
-	*stack_b = new_stack(0);
+	*stack_b = new_stack(0, 0);
 	if (!stack_b)
 		return (-2);
 	return (0);
@@ -64,13 +64,13 @@ int	ft_lstcpy(t_stack **stack, t_stack **stackcpy)
 	
 	tmp = *stack;
 	new = NULL;
-	*stackcpy = new_stack((*stack)->value);
+	*stackcpy = new_stack((*stack)->value, (*stack)->sort_index);
 	if (!stackcpy)
 		return (-2);
 	while (tmp->next != NULL)
 	{
 		tmp = tmp->next;
-		new = new_stack(tmp->value);
+		new = new_stack(tmp->value, tmp->sort_index);
 		if (!new)
 			return (-2);
 		stack_add_back(stackcpy, new);
@@ -82,7 +82,7 @@ void	init_index_stackcpy(t_stack *stackcpy, int index)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	if (index == 0)
 	{
 		while (stackcpy->next != NULL)

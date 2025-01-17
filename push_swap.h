@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:52:41 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/17 02:51:31 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/17 03:04:26 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int		stack_size(t_stack *stack);
 void	stack_add_front(t_stack **stack, t_stack *new);
 int		ft_lstcpy(t_stack **stack, t_stack **stackcpy);
 void	init_index_stackcpy(t_stack *stackcpy, int index);
+void	cpy_index_sort(t_stack *stack_a, t_stack *stack_c);
 
 // Operations
 

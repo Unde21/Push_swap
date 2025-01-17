@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 01:46:44 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/17 03:16:52 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/17 03:49:14 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,3 +126,4 @@ void	cpy_index_sort(t_stack *stack_a, t_stack *stack_c)
 		stack_c = stack_c->next;
 	}
 }
+

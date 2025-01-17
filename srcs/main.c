@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:42:01 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/17 03:12:59 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/17 05:58:00 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,18 +69,26 @@ int	main(int argc, char **argv)
 		init_index_stackcpy(stack_c, 0);
 		// push(&stack_a, &stack_b, 'b');
 		// push(&stack_a, &stack_b, 'b');
-		print_lst(stack_c, 'c', 1);
+		// print_lst(stack_c, 'c', 1);
 		algo(&stack_c, &stack_b);
 		init_index_stackcpy(stack_c, 1);
 		cpy_index_sort(stack_a, stack_c);
-		print_lst(stack_c, 'c', 2);
-		print_lst(stack_a, 'a', 2);
-		// print_lst(stack_b, 'b');
+		sandlass_algo(stack_a, stack_b);
+		move_to_a(stack_a, stack_b);
+		// print_lst(stack_c, 'c', 2);
+		print_lst(stack_a, 'a', 0);
+		print_lst(stack_b, 'b', 0);
 		// ft_printf("is sort ===> %d\n", is_sort(stack_a));
 		stack_clear(&stack_a, delete);
 	}
 	return (0);
 }
+
+// int	calculate_chunk(int size)
+// {
+// 	int y = 0.0000000 * (size * size) + 0.03 * size + 14.5;
+//     return (y);
+// }
 
 void	delete(void *content)
 {

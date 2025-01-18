@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 01:00:29 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/18 00:19:00 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/18 07:00:46 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ void	stack_clear(t_stack **stack, void (*delete)(void *))
 		tmp = (*stack)->next;
 		(void)delete;
 		//delete((*stack)->value);
-		free(tmp);
+		// if (stack)
+		// 	free(stack);
 		*stack = tmp;
 	}
 	stack = NULL;

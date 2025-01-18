@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 20:14:45 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/17 02:55:56 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/18 07:09:05 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	reverse_rotate(t_stack **stack, char c)
 	(void)c; // a retirer
 	first_elem = *stack;
 	last_elem = *stack;
+	ft_printf("B:          ");
+	print_lst(*stack, 'b', 0);
 	if (stack_size(*stack) > 1)
 	{
 		while (last_elem->next->next != NULL)
@@ -28,6 +30,8 @@ void	reverse_rotate(t_stack **stack, char c)
 		last_elem->next = NULL;
 		// ft_printf("rr%c\n", c);
 	}
+	ft_printf("B:          ");
+	print_lst(*stack, 'b', 0);
 }
 
 void	reverse_rotate_ab(t_stack **stack_a, t_stack **stack_b)  // a revoir pour l affichage rrr si une des 2 conditions n est pas rempli

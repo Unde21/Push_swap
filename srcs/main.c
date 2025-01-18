@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:42:01 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/18 00:21:43 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/18 06:37:48 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,14 @@ int	main(int argc, char **argv)
 		// push(&stack_a, &stack_b, 'b');
 		// print_lst(stack_c, 'c', 1);
 		algo(&stack_c, &stack_b);
+		// print_lst(stack_a, 'a', 0);
+		// print_lst(stack_b, 'b', 0);
 		init_index_stackcpy(stack_c, 1);
 		cpy_index_sort(stack_a, stack_c);
 		// ft_printf("index_sort :\n");
 		// print_lst(stack_a, 'a', 0);
 		// print_lst(stack_b, 'b', 0);
-		sandlass_algo(stack_a, stack_b, stack_size(stack_a));
+		sandlass_algo(stack_a, stack_b);
 		// print_lst(stack_a, 'a', 0);
 		// print_lst(stack_b, 'b', 0);
 		//move_to_a(stack_a, stack_b);
@@ -89,14 +91,10 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-// int	calculate_chunk(int size)
-// {
-// 	int y = 0.0000000 * (size * size) + 0.03 * size + 14.5;
-//     return (y);
-// }
 
 void	delete(void *content)
 {
 	if (content)
 		free(content);
 }
+

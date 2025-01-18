@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 01:46:44 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/18 00:09:18 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/18 06:33:40 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,10 @@ int	add_all_number_to_stack_a(int argc, char **argv, t_stack **stack_a)
 	t_stack	*new;
 	int		new_value;
 
+	new_value = 0;
 	i = 2;
 	while (i < argc)
 	{
-		if (!new_value)
-			return (-1);
 		new_value = ft_atoi(argv[i]);
 		new = new_stack(new_value, 0);
 		if (!new)
@@ -82,7 +81,7 @@ void	init_index_stackcpy(t_stack *stackcpy, int index)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	if (index == 0)
 	{
 		while (stackcpy->next != NULL)

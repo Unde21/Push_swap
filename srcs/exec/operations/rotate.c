@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 20:13:00 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/18 00:41:16 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/18 05:04:13 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rotate (t_stack **stack, char c)
 	
 	(void)c; // a retirer
 	first_elem = *stack;
-	if (stack_size(*stack) > 1 && first_elem->empty != true)
+	if (stack_size(*stack) > 1)
 	{	
 		*stack = first_elem->next;
 		stack_add_back(stack, first_elem);

@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:52:41 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/18 06:55:32 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 00:53:11 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ typedef	struct s_stack
 	
 }t_stack;
 
+void	run(t_stack *stack_a, t_stack *stack_b, t_stack *stack_c);
 // void	push1 (t_stack **stack_a, t_stack **stack_b, char c);
 int get_position(t_stack *stack, int value);
-void	b_reverse_rotate(t_stack *stack_b, int *pos, int *top_index);
-void	b_rotate(t_stack *stack_b, int *pos, int *top_index);
+void	b_reverse_rotate(t_stack **stack_b, int *pos, int *top_index);
+void	b_rotate(t_stack **stack_b, int *pos, int *top_index);
 int	calculate_chunk(int size);
 int	get_stack_top_index(t_stack *stack);
 void	move_to_a(t_stack *stack_a, t_stack *stack_b);
@@ -52,16 +53,16 @@ void	cpy_index_sort(t_stack *stack_a, t_stack *stack_c);
 
 // Operations
 
-void	swap(t_stack **stack, char c);
+void	swap(t_stack **stack);
 void	swap_ab (t_stack **stack_a, t_stack **stack_b);
 void	push (t_stack **stack_a, t_stack **stack_b, char c);
-void	rotate (t_stack **stack, char c);
+void	rotate (t_stack **stack);
 void	rotate_ab (t_stack **stack_a, t_stack **stack_b);
-void	reverse_rotate (t_stack **stack, char c);
+void	reverse_rotate (t_stack **stack);
 void	reverse_rotate_ab (t_stack **stack_a, t_stack **stack_b);
 
 // algo
-void	algo(t_stack **stack_a, t_stack **stack_b);
+void	first_sort(t_stack **stack_a, t_stack **stack_b);
 int	first_is_biggest (t_stack *stack);
 int	last_is_smallest(t_stack *stack);
 int	need_to_swap(t_stack *stack);
@@ -73,9 +74,9 @@ int	last_is_biggest(t_stack *stack);
 
 //version 2
 void	sort_max_three(t_stack **stack_a);
-void	big_sort(t_stack **stack_a, t_stack **stack_b);
+void	recursive_sort(t_stack **stack_a, t_stack **stack_b);
 int		smallest_difference(t_stack *stack, int medium_value);
-int		need_to_swap_b(t_stack *stack);
+int		need_to_swap_b(t_stack *stack, int i);
 int		get_medium_value(t_stack *stack);
 
 int	print_error(void);

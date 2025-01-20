@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 01:46:44 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/18 06:33:40 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 01:00:38 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ int	init_stack_a(int argc, char **argv, t_stack **stack_a)
 	if (!stack_a)
 		return (-2);
 	if (add_all_number_to_stack_a(argc, argv, stack_a) < 0)
-	{
-		stack_clear(stack_a, delete);
 		return (-1);
-	}
 	return (0);
 }
 

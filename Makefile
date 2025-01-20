@@ -1,9 +1,9 @@
 NAME = push_swap
 
 SRCS := srcs/main.c \
-    srcs/print.c \
+    srcs/parsing/print.c \
     srcs/parsing/check_arg_valid.c \
-    srcs/exec/init_stack.c \
+    srcs/exec/stack_functions/init_stack.c \
 	srcs/exec/operations/swap.c \
 	srcs/exec/operations/push.c \
 	srcs/exec/operations/rotate.c \
@@ -11,8 +11,9 @@ SRCS := srcs/main.c \
 	srcs/exec/sort_index/first_sort.c \
 	srcs/exec/sort_index/first_sort_utils.c \
 	srcs/exec/sort_index/check_is_sort.c \
-	srcs/exec/lst_functions.c \
-	srcs/exec/sandlass_algo.c \
+	srcs/exec/stack_functions/lst_functions.c \
+	srcs/exec/sandlass_sort/sandlass_algo.c \
+	srcs/exec/sandlass_sort/small_sort.c \
 
 CC := cc
 CFLAGS := -Wall -Wextra -Werror -g3

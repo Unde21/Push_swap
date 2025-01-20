@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 01:46:44 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/20 03:16:45 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 03:18:51 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	init_stack_a(int argc, char **argv, t_stack **stack_a)
 	int		i;
 	int		new_value;
 	t_stack	*new;
-	
+
 	new_value = 0;
 	i = 1;
 	while (i < argc)
@@ -31,26 +31,6 @@ int	init_stack_a(int argc, char **argv, t_stack **stack_a)
 	}
 	return (0);
 }
-
-// int	add_all_number_to_stack_a(int argc, char **argv, t_stack **stack_a)
-// {
-// 	int		i;
-// 	int		new_value;
-// 	t_stack	*new;
-
-// 	new_value = 0;
-// 	i = 1;
-// 	while (i < argc)
-// 	{
-// 		new_value = ft_atoi(argv[i]);
-// 		new = new_stack(new_value, 0);
-// 		if (!new)
-// 			return (-1);
-// 		stack_add_back(stack_a, new);
-// 		++i;
-// 	}
-// 	return (0);
-// }
 
 int	init_stack_b(t_stack **stack_b)
 {

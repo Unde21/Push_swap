@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 00:32:33 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/20 00:38:46 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 04:52:26 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	is_sort(t_stack *stack)
 		stack = stack->next;
 		index = stack->next;
 		if (index->value < stack->value)
-				return (-1);
+			return (-1);
 	}
 	return (0);
 }
@@ -63,7 +63,7 @@ int	is_reverse_sort(t_stack *stack)
 		stack = stack->next;
 		index = stack->next;
 		if (index->value > stack->value)
-				return (-1);
+			return (-1);
 	}
 	return (0);
 }
@@ -72,7 +72,7 @@ int	get_medium_value(t_stack *stack)
 {
 	int	medium_value;
 	int	nb_value;
-	
+
 	medium_value = 0;
 	if (stack_size(stack) < 1)
 		return (-1);

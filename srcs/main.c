@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:42:01 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/20 03:15:31 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 06:08:54 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ int	main(int argc, char **argv)
 
 void	run(t_stack **stack_a, t_stack *stack_b, t_stack *stack_c)
 {
+	int	chunk;
+	int	size;
+
+	size = 0;
+	chunk = 0;
 	if (is_sort(*stack_a) == 0)
 		return ;
 	if (ft_lstcpy(stack_a, &stack_c) != 0)
@@ -47,5 +52,10 @@ void	run(t_stack **stack_a, t_stack *stack_b, t_stack *stack_c)
 	init_index_stackcpy(stack_c, 1);
 	cpy_index_sort(*stack_a, stack_c);
 	stack_clear(&stack_c);
-	sandlass_algo(stack_a, stack_b);
+	size = stack_size(*stack_a);
+	chunk = calculate_chunk(stack_size(*stack_a));
+	if (size <= 5)
+		small_sort(stack_a, stack_b, size);
+	else
+		sandlass_algo(stack_a, stack_b, size, chunk);
 }

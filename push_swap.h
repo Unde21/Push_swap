@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:52:41 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/20 03:17:36 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 06:08:46 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdlib.h>
 # include <stdbool.h>
 
+
+
 typedef struct s_stack
 {
 	int				value;
@@ -26,10 +28,15 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+// void	printf_lst(t_stack *stack);
 /* ************************************************************************** */
 /*								Sandlass algo								  */
 /* ************************************************************************** */
-void	sandlass_algo(t_stack **stack_a, t_stack *stack_b);
+void	sandlass_algo(t_stack **stack_a, t_stack *stack_b, int size, int chunk);
+void	sort_three(t_stack *stack_a);
+int		get_last_index(t_stack *stack);
+void	sort_five(t_stack **stack_a, t_stack *stack_b, int first_number);
+void	small_sort(t_stack **stack_a, t_stack *stack_b, int size);
 void	run(t_stack **stack_a, t_stack *stack_b, t_stack *stack_c);
 void	move_to_a(t_stack **stack_a, t_stack *stack_b);
 void	b_rotate(t_stack **stack_b, int *pos, int *top_index);
@@ -56,7 +63,7 @@ int		ft_lstcpy(t_stack **stack, t_stack **stackcpy);
 /* ************************************************************************** */
 void	swap(t_stack **stack);
 void	swap_ab(t_stack **stack_a, t_stack **stack_b);
-void	rotate(t_stack **stack);
+void	rotate(t_stack **stack, char c);
 void	rotate_ab(t_stack **stack_a, t_stack **stack_b);
 void	reverse_rotate(t_stack **stack);
 void	reverse_rotate_ab(t_stack **stack_a, t_stack **stack_b);

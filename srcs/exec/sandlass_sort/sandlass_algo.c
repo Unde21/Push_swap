@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 03:58:44 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/20 02:58:45 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 05:55:54 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 
 int	calculate_chunk(int size)
 {
-	int y = 0.000000053 * (size * size) + 0.03 * size + 14.5;
-    return (y);
+	int	y;
+
+	y = 0.000000053 * (size * size) + 0.03 * size + 14.5;
+	return (y);
 }
 
-void	sandlass_algo(t_stack **stack_a, t_stack *stack_b)
+void	sandlass_algo(t_stack **stack_a, t_stack *stack_b, int size, int chunk)
 {
 	int	index;
 	int	stack_index;
-	int	chunk;
-	int	size;
 
-	size = stack_size(*stack_a);
-	chunk = calculate_chunk(stack_size(*stack_a));
-	stack_index = 0;
 	index = 0;
 	while (index < size)
 	{
@@ -42,20 +39,14 @@ void	sandlass_algo(t_stack **stack_a, t_stack *stack_b)
 		{
 			push(stack_a, &stack_b, 'b');
 			ft_printf("pb\n");
-			rotate(&stack_b);
-			if (stack_size(stack_b) > 1)
-				ft_printf("rb\n");
+			rotate(&stack_b, 'b');
 			++index;
 		}
 		else
-		{
-			rotate(stack_a);
-			ft_printf("ra\n");
-		}
+			rotate(stack_a, 'a');
 	}
 	move_to_a(stack_a, stack_b);
 }
-
 
 void	move_to_a(t_stack **stack_a, t_stack *stack_b)
 {
@@ -64,7 +55,6 @@ void	move_to_a(t_stack **stack_a, t_stack *stack_b)
 	int	big_index;
 	int	mid;
 
-	
 	big_index = 0;
 	top_index = 0;
 	mid = 0;
@@ -88,7 +78,7 @@ void	move_to_a(t_stack **stack_a, t_stack *stack_b)
 
 int	find_big_index(t_stack *stack, int size)
 {
-	int big_index;
+	int	big_index;
 
 	big_index = 0;
 	while (stack)
@@ -97,7 +87,7 @@ int	find_big_index(t_stack *stack, int size)
 			return (big_index);
 		++big_index;
 		stack = stack->next;
-	}	
+	}
 	return (-1);
 }
 

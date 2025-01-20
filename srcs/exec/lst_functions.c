@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 01:00:29 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/20 00:44:29 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 03:04:10 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_stack	*new_stack(int value, int sort_index)
 	if (!new)
 		return (NULL);
 	new->value = value;
-	new->empty = false;
 	new->sort_index = sort_index;
 	new->next = NULL;
 	return (new);
@@ -41,17 +40,14 @@ void	stack_add_back(t_stack **stack, t_stack *new)
 		*stack = new;
 }
 
-void	stack_clear(t_stack **stack, void (*delete)(void *))
+void	stack_clear(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	while (*stack)
+	while (*stack != NULL)
 	{
 		tmp = (*stack)->next;
-		(void)delete;
-		//delete((*stack)->value);
-		// if (stack)
-		free(stack);
+		free(*stack);
 		*stack = tmp;
 	}
 	stack = NULL;

@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 03:58:44 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/19 23:59:33 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 02:58:45 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,29 @@ int	calculate_chunk(int size)
     return (y);
 }
 
-void	sandlass_algo(t_stack *stack_a, t_stack *stack_b)
+void	sandlass_algo(t_stack **stack_a, t_stack *stack_b)
 {
 	int	index;
 	int	stack_index;
 	int	chunk;
 	int	size;
 
-	size = stack_size(stack_a);
-	chunk = calculate_chunk(stack_size(stack_a));
+	size = stack_size(*stack_a);
+	chunk = calculate_chunk(stack_size(*stack_a));
 	stack_index = 0;
 	index = 0;
 	while (index < size)
 	{
-		stack_index = get_stack_top_index(stack_a);
+		stack_index = get_stack_top_index(*stack_a);
 		if (stack_index <= index)
 		{
-			push(&stack_a, &stack_b, 'b');
+			push(stack_a, &stack_b, 'b');
 			ft_printf("pb\n");
 			++index;
 		}
 		else if (stack_index <= index + chunk)
 		{
-			push(&stack_a, &stack_b, 'b');
+			push(stack_a, &stack_b, 'b');
 			ft_printf("pb\n");
 			rotate(&stack_b);
 			if (stack_size(stack_b) > 1)
@@ -49,7 +49,7 @@ void	sandlass_algo(t_stack *stack_a, t_stack *stack_b)
 		}
 		else
 		{
-			rotate(&stack_a);
+			rotate(stack_a);
 			ft_printf("ra\n");
 		}
 	}
@@ -57,7 +57,7 @@ void	sandlass_algo(t_stack *stack_a, t_stack *stack_b)
 }
 
 
-void	move_to_a(t_stack *stack_a, t_stack *stack_b)
+void	move_to_a(t_stack **stack_a, t_stack *stack_b)
 {
 	int	top_index;
 	int	size;
@@ -80,7 +80,7 @@ void	move_to_a(t_stack *stack_a, t_stack *stack_b)
 		else if (big_index <= mid)
 			while (big_index > 0)
 				b_rotate(&stack_b, &big_index, &top_index);
-		push(&stack_a, &stack_b, 'a');
+		push(stack_a, &stack_b, 'a');
 		ft_printf("pa\n");
 		--size;
 	}

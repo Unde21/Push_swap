@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:52:41 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/21 09:20:14 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/21 23:20:55 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include "libft/libft.h"
 # include <stdlib.h>
 # include <stdbool.h>
-
-
 
 typedef struct s_stack
 {
@@ -31,19 +29,19 @@ typedef struct s_stack
 /* ************************************************************************** */
 /*								Sandlass algo								  */
 /* ************************************************************************** */
-void	sandlass_algo(t_stack **stack_a, t_stack *stack_b, int size, int chunk);
 void	sort_three(t_stack **stack_a);
-void	push_and_print_b(t_stack **stack_a, t_stack **stack_b);
-int		get_last_index(t_stack *stack);
 void	sort_four(t_stack **stack_a, t_stack **stack_b, int first_number);
 void	sort_five(t_stack **stack_a, t_stack **stack_b, int first_number);
 void	small_sort(t_stack **stack_a, t_stack **stack_b, int size);
+void	sandlass_algo(t_stack **stack_a, t_stack *stack_b, int size, int chunk);
 void	run(t_stack **stack_a, t_stack *stack_b, t_stack *stack_c);
+void	push_and_print_b(t_stack **stack_a, t_stack **stack_b);
 void	move_to_a(t_stack **stack_a, t_stack *stack_b);
 void	b_rotate(t_stack **stack_b, int *pos, int *top_index);
 void	b_reverse_rotate(t_stack **stack_b, int *pos, int *top_index);
 int		get_stack_top_index(t_stack *stack);
 int		get_position(t_stack *stack, int value);
+int		get_last_index(t_stack *stack);
 int		find_big_index(t_stack *stack, int size);
 int		calculate_chunk(int size);
 
@@ -100,6 +98,5 @@ int		is_duplicate(int argc, int *tab);
 /* ************************************************************************** */
 int		init_stack_b(t_stack	**stack_b);
 int		init_stack_a(int argc, char **argv, t_stack **stack_a);
-// int		add_all_number_to_stack_a(int argc, char **argv, t_stack **stack_a);
 
 #endif

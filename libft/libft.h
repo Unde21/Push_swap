@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 13:45:35 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/10 20:26:16 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/21 23:31:57 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,22 @@ int		print_nbr(int n, int check_form, int count);
 int		print_hexa(unsigned int n, const char *base, int count);
 int		check_format(va_list *params, char format);
 
+/* ************************************************************************** */
+/*								Ft_printf								  	  */
+/* ************************************************************************** */
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# ifndef MAX_FD
+#  define MAX_FD 1024
+# endif
+
+void	*ft_free(char *s);
+size_t	ft_strlen_delim(const char *str, int check);
+int		read_file(int fd, char *buffer);
+char	*get_next_line(int fd);
+char	*ft_strnjoin(char const *s1, char const *s2, int c);
+char	*clear_buffer(char *buffer);
 #endif

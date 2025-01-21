@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:52:41 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/20 06:08:46 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/21 09:20:14 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,16 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-// void	printf_lst(t_stack *stack);
 /* ************************************************************************** */
 /*								Sandlass algo								  */
 /* ************************************************************************** */
 void	sandlass_algo(t_stack **stack_a, t_stack *stack_b, int size, int chunk);
-void	sort_three(t_stack *stack_a);
+void	sort_three(t_stack **stack_a);
+void	push_and_print_b(t_stack **stack_a, t_stack **stack_b);
 int		get_last_index(t_stack *stack);
-void	sort_five(t_stack **stack_a, t_stack *stack_b, int first_number);
-void	small_sort(t_stack **stack_a, t_stack *stack_b, int size);
+void	sort_four(t_stack **stack_a, t_stack **stack_b, int first_number);
+void	sort_five(t_stack **stack_a, t_stack **stack_b, int first_number);
+void	small_sort(t_stack **stack_a, t_stack **stack_b, int size);
 void	run(t_stack **stack_a, t_stack *stack_b, t_stack *stack_c);
 void	move_to_a(t_stack **stack_a, t_stack *stack_b);
 void	b_rotate(t_stack **stack_b, int *pos, int *top_index);

@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:42:01 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/20 06:08:54 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/21 08:49:32 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	run(t_stack **stack_a, t_stack *stack_b, t_stack *stack_c)
 	size = stack_size(*stack_a);
 	chunk = calculate_chunk(stack_size(*stack_a));
 	if (size <= 5)
-		small_sort(stack_a, stack_b, size);
+		small_sort(stack_a, &stack_b, size);
 	else
 		sandlass_algo(stack_a, stack_b, size, chunk);
 }

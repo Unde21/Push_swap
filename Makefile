@@ -14,6 +14,7 @@ SRCS := srcs/main.c \
 	srcs/exec/stack_functions/lst_functions.c \
 	srcs/exec/sandlass_sort/sandlass_algo.c \
 	srcs/exec/sandlass_sort/small_sort.c \
+	srcs/exec/sandlass_sort/small_sort_utils.c \
 
 CC := cc
 CFLAGS := -Wall -Wextra -Werror -g3

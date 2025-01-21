@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 13:45:35 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/21 23:31:57 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/21 23:32:58 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int		print_hexa(unsigned int n, const char *base, int count);
 int		check_format(va_list *params, char format);
 
 /* ************************************************************************** */
-/*								Ft_printf								  	  */
+/*								Get_next_line							  	  */
 /* ************************************************************************** */
 
 # ifndef BUFFER_SIZE

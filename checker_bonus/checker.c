@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 23:34:52 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/22 01:16:18 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/22 04:41:20 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack *stack_a;
-	t_stack *stack_b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
+	stack_a = NULL;
+	stack_b = NULL;
 	if (argc < 2)
 		return (0);
 	if (parse_stack(argc, argv) == 0)
@@ -34,14 +36,14 @@ int	main(int argc, char **argv)
 
 void	get_input(t_stack **stack_a, t_stack **stack_b)
 {
-	char *line;
+	char	*line;
 
 	line = NULL;
 	while (1)
 	{
 		line = get_next_line(0);
 		if (!line)
-			break;
+			break ;
 		if (line)
 		{
 			if (execute_input(stack_a, stack_b, line) == -1)
@@ -50,14 +52,15 @@ void	get_input(t_stack **stack_a, t_stack **stack_b)
 				print_error();
 				return ;
 			}
-			if (is_sort(*stack_a) != 0 || stack_b != NULL)
-				ft_printf("KO\n");
-			else
-				ft_printf("OK\n");
-			free(line);
-			line = NULL;
 		}
 	}
+	if (is_sort(*stack_a) != 0 || *stack_b != NULL)
+		ft_printf("KO\n");
+	else
+		ft_printf("OK\n");
+	if (line)
+		free(line);
+	line = NULL;
 }
 
 int	execute_input(t_stack **stack_a, t_stack **stack_b, char *line)

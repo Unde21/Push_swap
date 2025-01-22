@@ -71,14 +71,21 @@ BOLD = \033[1m
 GREEN=\033[0;32m
 RED=\033[0;31m
 BLUE=\033[0;34m
+YELLOW := \033[0;33m
 COLOR_END=\033[0m
 
+CHECKMARK := "✔️"
+WARNING := "⚠️"
+FIRE := "🔥"
+OK := "✅"
+CLEAN := "🧹"
+DONE := "🏁"
 
 all: $(NAME)
 
 $(NAME): $(OBJS) Makefile
 	$(AR) $(NAME) $(OBJS)
-	@echo "$(GREEN)$(BOLD)$(NAME) created successfully!$(COLOR_END)"
+	@echo "$(GREEN)$(BOLD)$(FIRE)$(NAME) created successfully!$(OK)$(COLOR_END)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR) $(DEP_DIR)
 	@mkdir -p $(dir $@) $(dir $(DEP_DIR)$*)
@@ -92,7 +99,7 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME) $(OBJS_DIR)
-	@echo "$(RED)$(BOLD)$(NAME) cleaned !$(COLOR_END)"
+	@echo "$(YELLOW)$(BOLD)$(CLEAN)$(NAME) cleaned !$(CLEAN)$(COLOR_END)"
 
 re : 
 	@$(MAKE) fclean

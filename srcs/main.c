@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:42:01 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/21 08:49:32 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/22 01:11:05 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	stack_c = NULL;
 	stack_b = NULL;
 	stack_a = NULL;
-	if (argc <= 2)
+	if (argc < 2)
 		return (0);
 	if (parse_stack(argc, argv) == 0)
 	{

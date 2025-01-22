@@ -16,6 +16,8 @@ SRCS := srcs/main.c \
 	srcs/exec/sandlass_sort/small_sort.c \
 	srcs/exec/sandlass_sort/small_sort_utils.c \
 
+SRCBS := checker_bonus/srcs/checker.c \
+
 CC := cc
 CFLAGS := -Wall -Wextra -Werror -g3
 CPPFFLAGS := -MMD -MP 
@@ -23,16 +25,16 @@ CPPFFLAGS := -MMD -MP
 RM := rm -rf
 
 SRC_DIR := srcs/
-SRCB_DIR := srcs_bonus/
+SRCB_DIR := checker_bonus/
 OBJ_DIR := .objs/
 OBJB_DIR := .objs_bonus/
 LIBFT_DIR := ./libft
 
-INCS := -I.
+INCS := -I./includes -I./libft
 
 LIBFT := $(LIBFT_DIR)libft.a
 OBJS := $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
-OBJSB := $(patsubst $(SRCB_DIR)%.c, $(OBJB_DIR)%.o, $(SRCSB))
+OBJSB := $(patsubst $(SRCB_DIR)%.c,$(OBJB_DIR)%.o,$(SRCBS))
 
 BOLD := \033[1m
 GREEN := \033[0;32m
@@ -56,9 +58,7 @@ $(OBJ_DIR):
 
 $(OBJB_DIR)%.o: $(SRCB_DIR)%.c
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) $(INCS) $(CPPFFLAGS) -c -o $@
-
-$(OBJB_DIR):
+	@$(CC) $(CFLAGS) $(INCS) $(CPPFFLAGS)-c -o $@ $<
 	@mkdir -p $@
 
 $(LIBFT): FORCE
@@ -67,10 +67,7 @@ $(LIBFT): FORCE
 bonus: .bonus
 
 .bonus: $(LIBFT) $(OBJSB)
-	$(RM) $(NAME) 
-	@$(RM) $(OBJ_DIR)
-	@cp $(LIBFT) $(NAME)
-	$(AR) $(NAME) $(OBJSB)
+	$(CC) $(CFLAGS) $(OBJSB) $(INCS) -o $@
 	@echo "$(GREEN)$(BOLD)$(NAME) created successfully!$(END)"
 	@echo "$(BLUE)$(BOLD)$(NAME) made with bonuses$(END)"
 	@touch .bonus

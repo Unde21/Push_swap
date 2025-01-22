@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 01:46:44 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/20 03:18:51 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/22 00:48:10 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,6 @@ int	init_stack_a(int argc, char **argv, t_stack **stack_a)
 		stack_add_back(stack_a, new);
 		++i;
 	}
-	return (0);
-}
-
-int	init_stack_b(t_stack **stack_b)
-{
-	*stack_b = new_stack(0, 0);
-	if (!stack_b)
-		return (-2);
 	return (0);
 }
 

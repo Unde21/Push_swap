@@ -6,14 +6,14 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:52:41 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/21 23:20:55 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/22 00:48:03 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
+# include "libft.h"
 # include <stdlib.h>
 # include <stdbool.h>
 
@@ -29,6 +29,7 @@ typedef struct s_stack
 /* ************************************************************************** */
 /*								Sandlass algo								  */
 /* ************************************************************************** */
+
 void	sort_three(t_stack **stack_a);
 void	sort_four(t_stack **stack_a, t_stack **stack_b, int first_number);
 void	sort_five(t_stack **stack_a, t_stack **stack_b, int first_number);
@@ -48,6 +49,7 @@ int		calculate_chunk(int size);
 /* ************************************************************************** */
 /*								Lst functions								  */
 /* ************************************************************************** */
+
 void	stack_clear(t_stack **stack);
 void	stack_add_front(t_stack **stack, t_stack *new);
 void	stack_add_back(t_stack **lst, t_stack *new);
@@ -60,6 +62,7 @@ int		ft_lstcpy(t_stack **stack, t_stack **stackcpy);
 /* ************************************************************************** */
 /*								Operations								  	  */
 /* ************************************************************************** */
+
 void	swap(t_stack **stack);
 void	swap_ab(t_stack **stack_a, t_stack **stack_b);
 void	rotate(t_stack **stack, char c);
@@ -71,6 +74,7 @@ void	push(t_stack **stack_a, t_stack **stack_b, char c);
 /* ************************************************************************** */
 /*								First_sort								  	  */
 /* ************************************************************************** */
+
 void	sort_max_three(t_stack **stack_a);
 void	recursive_sort(t_stack **stack_a, t_stack **stack_b);
 void	first_sort(t_stack **stack_a, t_stack **stack_b);
@@ -88,6 +92,7 @@ int		first_is_biggest(t_stack *stack);
 /* ************************************************************************** */
 /*								Parsing									  	  */
 /* ************************************************************************** */
+
 int		print_error(void);
 int		parse_stack(int argc, char **argv);
 int		is_integer(char *str);
@@ -96,7 +101,7 @@ int		is_duplicate(int argc, int *tab);
 /* ************************************************************************** */
 /*								Init stack								  	  */
 /* ************************************************************************** */
-int		init_stack_b(t_stack	**stack_b);
+
 int		init_stack_a(int argc, char **argv, t_stack **stack_a);
 
 #endif

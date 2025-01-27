@@ -37,7 +37,7 @@ HEADERB := includes/push_swap.h \
 
 CC := cc
 CFLAGS := -Wall -Wextra -Werror -g3
-CPPFFLAGS := -MMD -MP 
+CPPFFLAGS := -MMD -MP
 
 RM := rm -rf
 
@@ -46,7 +46,7 @@ SRCB_DIR := checker_bonus/
 OBJ_DIR := .objs/
 OBJB_DIR := .objs_bonus/
 DEPS := $(OBJS:.o=.d)
-
+DEPSB := $(OBJSB:.o=.d)
 INCS := -I./includes -I./libft
 
 OBJS := $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
@@ -56,7 +56,7 @@ BOLD := \033[1m
 GREEN := \033[0;32m
 RED := \033[0;31m
 BLUE := \033[0;34m
-MAGENTA := \033[0;35m 
+MAGENTA := \033[0;35m
 CYAN    := \033[0;36m
 YELLOW := \033[0;33m
 END := \033[0m
@@ -69,9 +69,10 @@ CLEAN := "🧹"
 DONE := "🏁"
 
 -include $(DEPS)
+-include $(DEPSB)
 
 all: $(NAME)
-	
+
 $(NAME): libft/libft.a $(OBJS) Makefile
 	$(CC) $(CFLAGS) $(OBJS) $(INCS) ./libft/libft.a  -o $@
 	@echo "$(CYAN)$(BOLD)$(FIRE)$(NAME) made successfully!$(OK)$(END)"
@@ -79,14 +80,14 @@ $(NAME): libft/libft.a $(OBJS) Makefile
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(HEADER)
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(INCS) $(CPPFFLAGS)-c -o $@ $<
+	$(CC) $(CFLAGS) $(INCS) $(CPPFFLAGS) -c -o $@ $<
 
 $(OBJ_DIR):
 	@mkdir -p $@
 
 $(OBJB_DIR)%.o: $(SRCB_DIR)%.c $(HEADERB)
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) $(INCS) $(CPPFFLAGS)-c -o $@ $<
+	@$(CC) $(CFLAGS) $(INCS) $(CPPFFLAGS) -c -o $@ $<
 
 libft/libft.a : FORCE
 	@$(MAKE) -C libft

@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 23:34:52 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/22 04:41:20 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/01/28 12:20:52 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,14 @@ void	get_input(t_stack **stack_a, t_stack **stack_b)
 				print_error();
 				return ;
 			}
+			free(line);
+			line = NULL;
 		}
 	}
 	if (is_sort(*stack_a) != 0 || *stack_b != NULL)
 		ft_printf("KO\n");
 	else
 		ft_printf("OK\n");
-	if (line)
-		free(line);
-	line = NULL;
 }
 
 int	execute_input(t_stack **stack_a, t_stack **stack_b, char *line)

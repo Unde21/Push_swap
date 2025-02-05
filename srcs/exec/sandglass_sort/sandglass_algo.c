@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 03:58:44 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/22 04:22:55 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 20:29:04 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	calculate_chunk(int size)
 	return (y);
 }
 
-void	sandlass_algo(t_stack **stack_a, t_stack *stack_b, int size, int chunk)
+void	sandglass_algo(t_stack **stack_a, t_stack *stack_b, int size, int chunk)
 {
 	int	index;
 	int	stack_index;

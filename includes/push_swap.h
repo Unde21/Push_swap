@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:52:41 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/22 05:26:58 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 21:08:12 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,15 @@ typedef struct s_stack
 }	t_stack;
 
 /* ************************************************************************** */
-/*								Sandlass algo								  */
+/*								Sandglass algo								  */
 /* ************************************************************************** */
 
 void	sort_three(t_stack **stack_a);
 void	sort_four(t_stack **stack_a, t_stack **stack_b, int first_number);
 void	sort_five(t_stack **stack_a, t_stack **stack_b, int first_number);
 void	small_sort(t_stack **stack_a, t_stack **stack_b, int size);
-void	sandlass_algo(t_stack **stack_a, t_stack *stack_b, int size, int chunk);
+void	sandglass_algo(t_stack **stack_a,
+			t_stack *stack_b, int size, int chunk);
 void	run(t_stack **stack_a, t_stack *stack_b, t_stack *stack_c);
 void	push_and_print_b(t_stack **stack_a, t_stack **stack_b);
 void	move_to_a(t_stack **stack_a, t_stack *stack_b);
@@ -97,6 +98,7 @@ int		print_error(void);
 int		parse_stack(int argc, char **argv);
 int		is_integer(char *str);
 int		is_duplicate(int argc, int *tab);
+int		check_error_atoi(int *tmp_int, int i, char **argv);
 
 /* ************************************************************************** */
 /*								Init stack								  	  */

@@ -13,9 +13,9 @@ SRCS := srcs/main.c \
 	srcs/exec/sort_index/first_sort_utils.c \
 	srcs/exec/sort_index/check_is_sort.c \
 	srcs/exec/stack_functions/lst_functions.c \
-	srcs/exec/sandlass_sort/sandlass_algo.c \
-	srcs/exec/sandlass_sort/small_sort.c \
-	srcs/exec/sandlass_sort/small_sort_utils.c \
+	srcs/exec/sandglass_sort/sandglass_algo.c \
+	srcs/exec/sandglass_sort/small_sort.c \
+	srcs/exec/sandglass_sort/small_sort_utils.c \
 
 SRCSB := checker_bonus/checker.c \
 	srcs/parsing/print.c \

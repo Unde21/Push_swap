@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 00:32:33 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/21 09:12:29 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 20:31:08 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,8 @@ int	is_sort(t_stack *stack)
 
 int	is_reverse_sort(t_stack *stack)
 {
-	t_stack	*first_elem;
 	t_stack	*index;
 
-	first_elem = stack;
 	index = NULL;
 	if (stack_size(stack) <= 1)
 		return (0);

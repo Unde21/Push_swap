@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 13:45:35 by samaouch          #+#    #+#             */
-/*   Updated: 2025/02/05 20:47:00 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/02/11 08:53:49 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stddef.h>
 # include <stdarg.h>
+# include <stdbool.h>
 
 /* ************************************************************************** */
 /*						Part 1: Libc functions								  */
@@ -41,7 +42,7 @@ int		ft_isdigit(int c);
 int		ft_isascii(int c);
 int		ft_isalpha(int c);
 int		ft_isalnum(int c);
-int		ft_atoi(const char *nptr);
+int		ft_atoi(const char *nptr, int *check_error);
 
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);

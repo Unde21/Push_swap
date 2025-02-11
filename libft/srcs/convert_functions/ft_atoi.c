@@ -6,16 +6,18 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:03:11 by samaouch          #+#    #+#             */
-/*   Updated: 2025/02/05 20:46:57 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/02/11 09:17:09 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 #include <limits.h>
+#include <stddef.h>
 
 static int	is_overflow(unsigned long n, const char *str, size_t i, int s);
+static int	loop_atoi(const char *str, size_t i, int *check_error, int s);
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr, int *check_error)
 {
 	unsigned long	n;
 	int				s;
@@ -32,28 +34,48 @@ int	ft_atoi(const char *nptr)
 			s = -s;
 		++i;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	n = loop_atoi(nptr, i, check_error, s);
+	return (n * s);
+}
+
+static int	loop_atoi(const char *str, size_t i, int *check_error, int s)
+{
+	unsigned long	n;
+
+	n = 0;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (is_overflow(n, nptr, i, s) == -1)
+		if (is_overflow(n, str, i, s) == -1)
+		{
+			++*(check_error);
 			return (-1);
-		else if (is_overflow(n, nptr, i, s) == 0)
+		}
+		else if (is_overflow(n, str, i, s) == 0)
+		{
+			++*(check_error);
 			return (0);
-		n = n * 10 + (nptr[i] - '0');
+		}
+		n = n * 10 + (str[i] - '0');
 		++i;
 	}
-	return (n * s);
+	return (n);
 }
 
 static int	is_overflow(unsigned long n, const char *str, size_t i, int s)
 {
-	if (n > LONG_MAX / 10)
+	if (s < 0)
 	{
-		if (s > 0)
-			return (-1);
-		else if (s < 0)
+		if (n > (unsigned)INT_MIN / 10)
+			return (0);
+		else if ((long)n * 10 > INT_MIN - (str[i] - '0'))
 			return (0);
 	}
-	else if ((long)n * 10 > LONG_MAX - (str[i] - '0'))
-		return (0);
+	else if (s > 0)
+	{
+		if (n > INT_MAX / 10)
+			return (-1);
+		else if ((long)n * 10 > INT_MAX - (str[i] - '0'))
+			return (0);
+	}
 	return (1);
 }

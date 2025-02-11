@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 23:34:52 by samaouch          #+#    #+#             */
-/*   Updated: 2025/01/28 12:20:52 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/02/11 08:40:01 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int argc, char **argv)
 		}
 		get_input(&stack_a, &stack_b);
 		stack_clear(&stack_a);
+		stack_clear(&stack_b);
 	}
 	return (0);
 }
@@ -56,7 +57,7 @@ void	get_input(t_stack **stack_a, t_stack **stack_b)
 			line = NULL;
 		}
 	}
-	if (is_sort(*stack_a) != 0 || *stack_b != NULL)
+	if ((*stack_a != NULL && is_sort(*stack_a) != 0) || *stack_b != NULL)
 		ft_printf("KO\n");
 	else
 		ft_printf("OK\n");
@@ -64,7 +65,7 @@ void	get_input(t_stack **stack_a, t_stack **stack_b)
 
 int	execute_input(t_stack **stack_a, t_stack **stack_b, char *line)
 {
-	if (ft_strcmp(line, "sa\n") == 0)
+	if (ft_strcmp(line, "sa\n") == 0 && stack_a != NULL)
 		swap(stack_a);
 	else if (ft_strcmp(line, "sb\n") == 0)
 		swap(stack_b);

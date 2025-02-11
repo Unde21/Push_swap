@@ -6,7 +6,7 @@
 /*   By: samaouch <samaouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 04:33:05 by samaouch          #+#    #+#             */
-/*   Updated: 2025/02/05 21:43:16 by samaouch         ###   ########lyon.fr   */
+/*   Updated: 2025/02/11 09:09:33 by samaouch         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ int	parse_stack(int argc, char **argv)
 		++i;
 	}
 	if (is_duplicate(argc, tmp_int) < 0)
-	{
-		free(tmp_int);
 		return (print_error());
-	}
 	free(tmp_int);
 	return (0);
 }
@@ -89,7 +86,9 @@ int	is_duplicate(int argc, int *tab)
 int	check_error_atoi(int *tmp_int, int i, char **argv)
 {
 	int	len_nb;
+	int	check_error;
 
+	check_error = 0;
 	len_nb = ft_strlen(argv[i]);
 	if (len_nb >= 11 && (argv[i][0] == '-' || argv[i][0] == '+')
 		&& argv[i][len_nb - 1] > '8')
@@ -103,6 +102,11 @@ int	check_error_atoi(int *tmp_int, int i, char **argv)
 		free(tmp_int);
 		return (-1);
 	}
-	tmp_int[i - 1] = ft_atoi(argv[i]);
+	tmp_int[i - 1] = ft_atoi(argv[i], &check_error);
+	if (check_error != 0)
+	{
+		free(tmp_int);
+		return (-1);
+	}
 	return (0);
 }
